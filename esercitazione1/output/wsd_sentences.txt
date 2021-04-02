@@ -1,0 +1,14 @@
+[coat_of_arms, arms, blazon, blazonry] bend at the elbow. | coat_of_arms.n.01 | the official symbols of a family, state, etc.
+Germany sells [coat_of_arms, arms, blazon, blazonry] to Saudi Arabia. | coat_of_arms.n.01 | the official symbols of a family, state, etc.
+The [key] broke in the lock. | key.n.01 | metal device shaped in such a way that when it is inserted into the appropriate lock the lock's mechanism can be rotated
+The [Key, Francis_Scott_Key] problem was not one of quality but of quantity. | key.n.07 | United States lawyer and poet who wrote a poem after witnessing the British attack on Baltimore during the War of 1812; the poem was later set to music and entitled `The Star-Spangled Banner' (1779-1843)
+Work out the [solution] in your head. | solution.n.01 | a homogeneous mixture of two or more substances; frequently (but not necessarily) a liquid solution
+Heat the [solution, answer, result, resolution, solvent] to 75° Celsius. | solution.n.02 | a statement that solves a problem or explains how to solve the problem
+The house was burnt to [ash] while the owner returned. | ash.n.01 | the residue that remains when something is burned
+This table is made of [ash] wood. | ash.n.03 | strong elastic wood of any of various ash trees; used for furniture and tool handles and sporting goods such as baseball bats
+The [NONE] with her boss took longer than she expected. |  | 
+She packed her [NONE] in her purse. |  | 
+The [categorization, categorisation, classification, compartmentalization, compartmentalisation, assortment] of the genetic data took two years. | categorization.n.03 | the act of distributing things into classes or categories of the same type
+The journal Science published the [categorization, categorisation, classification, compartmentalization, compartmentalisation, assortment] this month. | categorization.n.03 | the act of distributing things into classes or categories of the same type
+His cottage is near a small [forest, wood, woods]. | forest.n.01 | the trees and other plants in a large densely wooded area
+The statue was made out of a block of [wood]. | wood.n.08 | a golf club with a long shaft used to hit long shots; originally made with a wooden head
