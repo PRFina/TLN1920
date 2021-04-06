@@ -81,10 +81,10 @@ class Nasari():
                         
                 self._nasari_dict[babel_synset] = nasari_vector # build dictionary for each line of the file
 
-    def get_nasari_vector(self, synset_name):
+    def get_vector(self, synset_name):
         return self._nasari_dict[synset_name]
     
-    def get_nasari_vectors(self):
+    def get_vectors(self):
         return self._nasari_dict;
 
     def build_context(self, tokens):
