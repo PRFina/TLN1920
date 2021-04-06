@@ -1,0 +1,5 @@
+
+dd-nasari.txt. a subset of NASARI (obtained by truncating vectors at 10 features). 3,587,754 vectors, ~600MB;
+
+  https://goo.gl/85BubW
+
