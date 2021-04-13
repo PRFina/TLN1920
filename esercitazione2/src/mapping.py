@@ -175,7 +175,7 @@ class WordNetContext(ContextBuilder):
         return ctx_s
 
 
-class FNtoWNMapper():
+class FrameToSynsetMapper():
     """ A mapper object to map a FrameNet frame slot to a wordnet sense (synset).
 
         The mapping algorithm is based on context overlapping measure:
