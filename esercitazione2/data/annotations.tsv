@@ -16,7 +16,7 @@ Existence	LU	existence.n	COD:  the fact or state of existing.	 being.n.01
 Existence	LU	real.a	COD: actually existing or occurring in fact; not imagined or supposed.	real.a.01
 Existence	LU	there be.v	COD: exist; be present	be.v.01
 Existence	LU	remain.v	COD: be in the same place or condition during further time.	stay.v.01
-Mental_activity	NAME	Mental_activity	In this frame, a Sentient_entity has some activity of the mind operating on a particular Content or about a particular Topic	activity.n.01
+Mental_activity	NAME	activity	In this frame, a Sentient_entity has some activity of the mind operating on a particular Content or about a particular Topic	activity.n.01
 Mental_activity	FE	Sentient_entity	The individual whose mind has a particular piece of Content in it, or, more generically portrayed, whose mind is focussed on a particular Topic. 	awareness.n.02
 Mental_activity	FE	Content	The situation or state-of-affairs that the Sentient_entity's attention is focussed on. 	content.n.05
 Mental_activity	FE	Evidence	The source of awareness or knowledge of the Content.	evidence.n.01
@@ -27,7 +27,7 @@ Mental_activity	FE	Expressor	Expressor is the body part that reveals the Sentien
 Mental_activity	FE	Role	The category that an element of the Content is considered to belong to. 	property.n.02
 Mental_activity	FE	Paradigm	The system of knowledge which serves as the basis for the Sentient_entity's awareness.  'The formation of black holes should be understood in astrophysic terms.'	paradigm.n.04
 Mental_activity	FE	Time	The time interval during which the Sentient_entity has the Content in their attention.	time_interval.n.01
-Education_teaching	NAME	Education_teaching	This frame contains words referring to teaching and the participants in teaching	teaching.n.01
+Education_teaching	NAME	teaching	This frame contains words referring to teaching and the participants in teaching	teaching.n.01
 Education_teaching	FE	Teacher	One who instructs a Student in some area of knowledge or skill.	teacher.n.01
 Education_teaching	FE	Student	One who is instructed by a Teacher in skills or knowledge.	student.n.01
 Education_teaching	FE	Institution	An educational establishment, such as a school or college.	educational_institution.n.01
@@ -92,7 +92,7 @@ Immobilization	LU	lock up.v	FN: make or become rigidly fixed or immovable by loc
 Immobilization	LU	handcuff.v	COD: put handcuffs on. 	manacle.v.01
 Immobilization	LU	shackle.v	COD: chain with shackles. 	shackle.n.01
 Immobilization	LU	straitjacket.v	FN: confine in a straitjacket.	straitjacket.n.01
-Response_scenario	NAME	Response_scenario	A Trigger elicits a Response by some Responding_entity or an Agent	scenario.n.03
+Response_scenario	NAME	scenario	A Trigger elicits a Response by some Responding_entity or an Agent	scenario.n.03
 Response_scenario	FE	Responding_entity	A non-agentive entity that is impinged upon by a Trigger event to which they respond.	entity.n.01
 Response_scenario	FE	Trigger	An event that impinges upon the Agent or Responding_entity and produces a Response from it.	trigger.n.03
 Response_scenario	FE	Response	The means action whereby the Agent responds to the Trigger. 	reaction.n.03
