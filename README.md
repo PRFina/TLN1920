@@ -19,5 +19,8 @@ Viene seguita la seguente convenzione per la stuttura delle directories:
 ## Table of Contents
 * Mazzei
 * Radicioni
-    * Esercitazione 1: Concept Similarity & Word Sense Disambiguation con Wordnet
+    * Esercitazione 1: Sense Similarity con SimCorpus353 & Word Sense Disambiguation con algoritmo Lesk su corpus SemCor.
+    * Esercitazione 2: Annotazione & Allineamento Ontologico tra FrameNet e WordNet.
+    * Esercitazione 3: Text Summarization con Nasari.
+    * Esercitazione 4: Annotazione Semantica con BabelNet & Sense Similarity con Nasari (embedded).
 * Dicaro
