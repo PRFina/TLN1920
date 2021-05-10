@@ -4,6 +4,7 @@ python create_es_module <numero esercitazione>
 
 from pathlib import Path
 import sys
+
 MODULE_NAME =  'esercitazione' + sys.argv[1]
 DATA_NAME = 'data'
 OUTPUT_NAME = 'output'
@@ -13,7 +14,7 @@ top_level = [Path(DATA_NAME),
              Path(OUTPUT_NAME),
              Path(CODE_NAME)]
 
-module_path = Path(MODULE_NAME)
+module_path = Path() / Path(MODULE_NAME)
 module_path.mkdir()
 
 for dir in top_level:
