@@ -1,0 +1,103 @@
+frame	slot	value	definition	synset_ID
+Existence	NAME	Existence	An Entity is declared to exist, generally irrespective of its position or even the possibility of its position being specified	being.n.01
+Existence	FE	Entity	Some entity, abstract or concrete, which is stated to exist.	entity.n.01
+Existence	FE	Time	A time at which the entity is in existence.	time.n.05
+Existence	FE	Duration	The period during which the Entity exists.	duration.n.01
+Existence	FE	Inherent_purpose	The reason why the Entity exists.  Generally, this is more specifically the reason why the Entity was made.	purpose.n.01
+Existence	FE	State	The condition that the Entity exists in.  'Natural electricity exists in many forms:  in storms, solar wind, and nerve impulses.'	state.n.02
+Existence	FE	Explanation	A situation, force, or entity which brings about the existence of the Entity.	explanation.n.01
+Existence	FE	Place	Where the Entity exists.	position.n.01
+Existence	FE	Circumstances	Circumstances marks expressions that indicate a set of conditions under which the Entity is declared to exist	circumstance.n.01
+Existence	FE	Viewpoint	The perspective of an individual who judges whether they consider the Entity (or further state of affairs) to exist or not.  'For him, there 's just too much drink in the world.'	point_of_view.n.01
+Existence	FE	Concessive	This FE signifies that the state of affairs expressed by the main clause (containing the target) occurs or holds, and something other than that state of affairs would be expected given the state of affairs in the concessive clause. 	concessive.a.01
+Existence	FE	Depictive	This FE describes a participant of the state of affairs introduced by the target as being in some state during the action. 	delineative.s.01
+Existence	LU	exist.v	FN: be real, directly or indirectly perceptible.	exist.v.01
+Existence	LU	existence.n	COD:  the fact or state of existing.	 being.n.01
+Existence	LU	real.a	COD: actually existing or occurring in fact; not imagined or supposed.	real.a.01
+Existence	LU	there be.v	COD: exist; be present	be.v.01
+Existence	LU	remain.v	COD: be in the same place or condition during further time.	stay.v.01
+Mental_activity	NAME	activity	In this frame, a Sentient_entity has some activity of the mind operating on a particular Content or about a particular Topic	activity.n.01
+Mental_activity	FE	Sentient_entity	The individual whose mind has a particular piece of Content in it, or, more generically portrayed, whose mind is focussed on a particular Topic. 	awareness.n.02
+Mental_activity	FE	Content	The situation or state-of-affairs that the Sentient_entity's attention is focussed on. 	content.n.05
+Mental_activity	FE	Evidence	The source of awareness or knowledge of the Content.	evidence.n.01
+Mental_activity	FE	Topic	A description of the kind of Content in the Sentient_entity's attention in terms of an idea which is salient throughout the Content.	subject.n.01
+Mental_activity	FE	Degree	This FE identifies the Degree to which an event occurs.	degree.n.01
+Mental_activity	FE	Manner	Any description of the cognitive act which is not covered by more specific FEs, including secondary effects (quietly, loudly), and general descriptions comparing events (the same way). In addition, it may indicate salient characteristics of a Sentient_entity that also affect the action (presumptuously, coldly, deliberately, eagerly, carefully). 	manner.n.01
+Mental_activity	FE	Expressor	Expressor is the body part that reveals the Sentient_entity's state to the observer. 	expression.n.02
+Mental_activity	FE	Role	The category that an element of the Content is considered to belong to. 	property.n.02
+Mental_activity	FE	Paradigm	The system of knowledge which serves as the basis for the Sentient_entity's awareness.  'The formation of black holes should be understood in astrophysic terms.'	paradigm.n.04
+Mental_activity	FE	Time	The time interval during which the Sentient_entity has the Content in their attention.	time_interval.n.01
+Education_teaching	NAME	teaching	This frame contains words referring to teaching and the participants in teaching	teaching.n.01
+Education_teaching	FE	Teacher	One who instructs a Student in some area of knowledge or skill.	teacher.n.01
+Education_teaching	FE	Student	One who is instructed by a Teacher in skills or knowledge.	student.n.01
+Education_teaching	FE	Institution	An educational establishment, such as a school or college.	educational_institution.n.01
+Education_teaching	FE	Subject	The area of knowledge or skill which is taught by a Teacher or to a Student.  'She's a French Teacher'	discipline.n.01
+Education_teaching	FE	Level	This FE identifies the Level of a student in his/her education. This is  distinct from the goal or qualification towards which a student is working (Qualification ). 'a graduate student ' 'a fourth grade student ' The above are both Levels, in contrast to: 'a doctoral Student ' 'an MA Student '	grade.n.02
+Education_teaching	FE	Qualification	A formal Qualification such as an academic degree or a certificate for which a student is aiming.   'She's Studying for a Master's degree' 'She's an MA Student'   	award.n.02
+Education_teaching	FE	Degree	Degree to which event occurs	degree.n.01
+Education_teaching	FE	Depictive	Depictive phrase describing the actor of an action	delineative.s.01
+Education_teaching	FE	Manner	Manner of performing an action	manner.n.01
+Education_teaching	FE	Means	An intentional action performed by the actor (Student or Teacher depending on the profiling of particular words) that lets them achieve the instruction or learning they are attempting. 	means.n.02
+Education_teaching	FE	Result	Result of an event	result.n.03
+Education_teaching	FE	Time	The time when the teaching occurs.	time.n.02
+Education_teaching	FE	Place	The Place is the location within which the teaching takes place.  <!--Consider whether a possible Place phrase is really where the training took place or is rather part of a description of the Institution. --> 	place.n.02
+Education_teaching	FE	Duration	The amount of time for which a state holds or a process is ongoing.	duration.n.01
+Education_teaching	FE	Skill	An action which the Student is able to perform as a result of instruction.   'Taut with worry, Dad taught us how to drive. '	skill.n.02
+Education_teaching	FE	Precept	A guideline for correct behavior. In most cases, this concerns morally or socially desirable actions.  'My brother taught me not to be mean to guys when I'm not interested in them.'	principle.n.05
+Education_teaching	FE	Fact	A piece of information that the Student is informed of by the Teacher.  'When I was two she taught me that a quarter was 25 cents and a dime was 10 cents.'	fact.n.01
+Education_teaching	FE	Material	"Educational Material, such as books, tapes, or videos, used by a Teacher or a Student to acquire skills or knowledge.  'All employees have received a booklet INSTRUCTING them on how to report ` anything from unwanted touching and uncalled-for blue jokes to overt demands for sexual favours . ""'"	material.n.04
+Education_teaching	FE	Role	A role, typically professional or vocational,  that the Student is meant to be able to fill as a result of their training.  ' When his father died he went to live with an uncle in Ka'u who trained him as a warrior during his teenage years'	role.n.04
+Education_teaching	FE	Course	FN: a program of lectures or other matter dealing with a subject	class.n.02
+Education_teaching	FE	Purpose	The state-of-affairs that the Teacher hopes to bring about by teaching.  'I teach so that I can see the little light-bulb light up.'	purpose.n.01
+Education_teaching	LU	student.n	FN: A person who is taught by another, often (at least in British English) at a university or other place of higher education 	student.n.01
+Education_teaching	LU	pupil.n	COD: a person who is taught by another, especially a schoolchild. 	schoolchild.n.01
+Education_teaching	LU	teacher.n	FN: A person who teaches in an educational establishment	teacher.n.01
+Education_teaching	LU	professor.n	FN: a university academic (in BrE: of the highest rank)	professor.n.01
+Education_teaching	LU	tutor.n	FN: a teacher, typically one who teaches a single pupil or a very small group	coach.n.02
+Education_teaching	LU	lecturer.n	COD: person who gives lectures, especially as a teacher in higher education. 	lector.n.02
+Education_teaching	LU	tutee.n	COD: a student or pupil of a tutor	tutee.n.01
+Education_teaching	LU	schoolmaster.n	COD: a male teacher in a school. 	schoolmaster.n.02
+Education_teaching	LU	schoolmistress.n	COD: a female teacher in a school	schoolmarm.n.01
+Education_teaching	LU	schoolteacher.n	COD: a person who teaches in a school.	schoolteacher.n.01
+Education_teaching	LU	study.v	COD: acquire knowledge on.	learn.v.04
+Education_teaching	LU	tutor.v	COD: act as a tutor to	tutor.v.01
+Education_teaching	LU	coach.v	COD: train or teach as a coach.	coach.v.01
+Education_teaching	LU	educate.v	COD: train or give information on a particular subject.	educate.v.01
+Education_teaching	LU	learn.v	FN: acquire knowledge of or skill in (something) through study or by being taught.	learn.v.01
+Education_teaching	LU	school.v	COD: train in a particular skill or activity.	school.v.01
+Education_teaching	LU	train.v	FN: teach a particular skill or type of behaviour through regular practice and instruction.	coach.v.01
+Education_teaching	LU	training.n	FN: instruction in a particular skill or field.	training.n.01
+Education_teaching	LU	instruct.v	COD: to teach	teach.v.01
+Education_teaching	LU	teach.v	COD: impart knowledge to or instruct (someone) in how to do something, especially in a school or as part of a recognized programme	teach.v.01
+Education_teaching	LU	instruction.n	COD: education. 	education.n.01
+Education_teaching	LU	education.n	COD:  the process of educating or being educated.	education.n.01
+Education_teaching	LU	master.v	COD: acquire complete knowledge or skill in	master.v.01
+Education_teaching	LU	educational.a	FN: of or related to the process of educating 	educational.a.01
+Education_teaching	LU	graduate.n	COD: a person who has been awarded a first academic degree, or (N. Amer.) a high-school diploma.	alumnus.n.01
+Education_teaching	LU	protege.n	FN: a student of an expert	protege.n.01
+Education_teaching	LU	cram.v	FN: study in an intense fashion, usually because of an imminent exam	cram.v.03
+Immobilization	NAME	Immobilization	The Agent immobilizes a Patient optionally,  to an Anchor	immobilization.n.02
+Immobilization	FE	Agent	The Agent immobilizes the Patient. 'Lisa handcuffed Mike to the refridgerator.'	agent.n.05
+Immobilization	FE	Instrument	The instrument with which an intentional act is performed.	instrument.n.02
+Immobilization	FE	Patient	The Patient is immobilized by the Agent, optionally to an Anchor.	affected_role.n.01
+Immobilization	FE	Means	An act performed by the Agent that accomplishes the immobilization.	means.n.02
+Immobilization	FE	Purpose	This FE identifies the Purpose for which an Agent immobilizes a Patient.  'Lisa handcuffed Mike to the refridgerator to reduce the mess.'	purpose.n.01
+Immobilization	FE	Time	When the event occurs.	time.n.01
+Immobilization	FE	Place	Where the event takes place.	place.n.13
+Immobilization	FE	Anchor	The Agent attaches the Patient to an Anchor, generally, an immobile object. Lisa handcuffed Mike to the refridgerator.	anchor.n.02
+Immobilization	FE	Degree	The extent to which the Patient is immobilized as a result.  'The policman tied up the burglar completely'	degree.n.01
+Immobilization	FE	Manner	Any description of the immobilizing event which is not covered by more specific FEs, including secondary effects (quietly, loudly) and general descriptions comparing events (the same way). This FE also covers expressions that indicate salient characteristics of the Agent which also affect the action (carefully, eagerly).  'Brian grabbed Kim's arm and handcuffed him quickly.'	manner.n.02
+Immobilization	LU	tie up.v	FN: immobilize someone or something	tie_up.v.03
+Immobilization	LU	lock up.v	FN: make or become rigidly fixed or immovable by locking	lock_in.v.02
+Immobilization	LU	handcuff.v	COD: put handcuffs on. 	manacle.v.01
+Immobilization	LU	shackle.v	COD: chain with shackles. 	shackle.n.01
+Immobilization	LU	straitjacket.v	FN: confine in a straitjacket.	straitjacket.n.01
+Response_scenario	NAME	scenario	A Trigger elicits a Response by some Responding_entity or an Agent	scenario.n.03
+Response_scenario	FE	Responding_entity	A non-agentive entity that is impinged upon by a Trigger event to which they respond.	entity.n.01
+Response_scenario	FE	Trigger	An event that impinges upon the Agent or Responding_entity and produces a Response from it.	trigger.n.03
+Response_scenario	FE	Response	The means action whereby the Agent responds to the Trigger. 	reaction.n.03
+Response_scenario	FE	Agent	The intentional Agent that is impinged upon by a Trigger event to which they respond.	agent.n.01
+Response_scenario	FE	Manner	A characterization of the Responding_entity, Agent, or their Response action.	manner.n.02
+Response_scenario	FE	Place	The location in which the Response action takes place.	place.n.13
+Response_scenario	FE	Purpose	An action that the Agent intends to accomplish by performing the Response action.	purpose.n.01
+Response_scenario	FE	Time	The point in time when the Agent or Responding_entity manifests its Response to the Trigger .	time.n.01
