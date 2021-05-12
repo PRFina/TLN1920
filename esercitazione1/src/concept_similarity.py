@@ -24,7 +24,7 @@ def wu_palmer_similarity(synset1, synset2):
         return None 
     
     lcs = subsumers[0] # take just the first one among all possible LSC
-    depth_lcs = lcs.max_depth() + 1
+    depth_lcs = lcs.max_depth() + 1 # +1 for the node itself
     
     len1 = synset1.shortest_path_distance(lcs, simulate_root=False)
     len2 = synset2.shortest_path_distance(lcs, simulate_root=False)
