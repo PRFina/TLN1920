@@ -37,7 +37,7 @@ def sense_similarity(word1, word2, similarity_func, nasari):
         max_score = scores[max_idx]
         max_senses = senses[max_idx]
     
-    return max_score, *max_senses # (score, word1, word2) instead of (score, (word1,word2))
+    return max_score, max_senses[0], max_senses[1] # (score, word1, word2) instead of (score, (word1,word2))
 
 
 def sense_similarity_score(word1, word2, similarity_func, nasari):
