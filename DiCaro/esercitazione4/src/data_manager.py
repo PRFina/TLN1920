@@ -1,5 +1,6 @@
 
 from pathlib import Path
+import numpy as np
 
 class Document:
     BLOCK_SEPARATOR = "$$^^$$"

@@ -1,16 +1,17 @@
-def block_similarity_plot(ax, document, segmenter, **segmenter_kwargs):
+import numpy as np
+import matplotlib.pyplot as plt
 
-    breakpoints, similarities = segmenter.segment(document, **segmenter_kwargs)
+def block_similarity_plot(ax, document, valleys, similarities):
+
     x = np.arange(len(similarities))
 
-    ax.plot(x, similarities, "-o")
-    ax.plot(breakpoints, similarities[breakpoints], "X")
+    ax.plot(x, similarities, "-o") # main curve
+    ax.plot(valleys, similarities[valleys], "X") # highlights valleys
 
     ax.set_xticks(x)
-    [ax.axvline(breakpt, linestyle='--', alpha=0.7) for breakpt in breakpoints]
+    [ax.axvline(breakpt, linestyle='--', alpha=0.7) for breakpt in valleys] # highlights valleys
 
     title = document.title.split(".")[0] # heuristic for good title
-    ax.set_title()
     ax.set(xlabel = "block Gap",
            ylabel = "block Similarity",
            title = f'Block Similarity  Plot of doc: "{title} ..."')

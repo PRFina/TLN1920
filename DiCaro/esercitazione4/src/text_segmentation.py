@@ -1,5 +1,12 @@
+import numpy as np
 import scipy.spatial.distance as distance
+import scipy.signal as signal
 import itertools as it
+
+import nltk
+nltk.download('punkt')
+from nltk.corpus import stopwords
+nltk.download('stopwords')
 
 def cosine_similarity(v1,v2):
     return 1 - distance.cosine(v1,v2)
