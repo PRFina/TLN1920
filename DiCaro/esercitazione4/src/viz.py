@@ -31,7 +31,7 @@ def block_span_plot(ax, document, true_breakpoints, system_breakpoints):
     # ticks
     ax.set_yticks([true_center, system_center])
     ax.set_yticklabels(["True", "System"])
-    ax.set_xticks(np.arange(1,len(doc.get_chunks()) + 1, step=9))
+    ax.set_xticks(np.arange(1,len(document.get_chunks()) + 1, step=9))
     
     # labels
     title = document.title.split(".")[0] # heuristic for good title
@@ -54,10 +54,12 @@ def block_span_plot(ax, document, true_breakpoints, system_breakpoints):
     [ax.axvspan(block[0], block[-1]+0.5,
                 system_center-center_offset,
                 system_center+bar_width-center_offset,
-                color=system_color) for block in system_blocks]
+                color=system_color) for block in system_blocks if len(block) > 0]
 
     # true blocks projection lines
     [ax.axvline(block[0], 
                 true_center-(true_center-system_center)-center_offset, 
                 true_center,
                 linestyle='--', color='#a7b04c', alpha=0.5) for block in true_blocks]
+
+ 
