@@ -24,3 +24,7 @@ Viene seguita la seguente convenzione per la stuttura delle directories:
     * Esercitazione 3: Text Summarization con Nasari.
     * Esercitazione 4: Annotazione Semantica con BabelNet & Sense Similarity con Nasari (embedded).
 * Dicaro
+    * Esercitazione 1: Lexical Overlapping
+    * Esercitazione 2: Content-to-Form
+    * Esercitazione 4: Text Segmentation
+    * Esercitazione 5: Text Generation con Language Models basati su RNN 
