@@ -2,6 +2,10 @@ from nltk.corpus import wordnet as wn
 import nltk
 from pathlib import Path
 
+import nltk.stem
+
+
+
 # a set of common english stop words
 STOP_WORDS = set(Path('data/stop_words_FULL.txt').open('r').read().splitlines())
 
@@ -23,8 +27,9 @@ def bow_model(sentence, stopwords=None):
     bow = bow.difference(punct)
     if stopwords:
         bow = bow.difference(stopwords)
-
-    return bow
+    lemmatizer = nltk.stem.WordNetLemmatizer()
+    
+    return set(lemmatizer.lemmatize(token) for token in bow)
 
 def lesk_wsd(sentence, ambiguous_word, stopwords=None):
     """ Lesk word sense disambiguation algorithm. Given ambiguous word, the algorithm use the
