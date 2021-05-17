@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import src.data_manager as dm
 
 def block_similarity_plot(ax, document, valleys, similarities):
 
@@ -16,6 +17,26 @@ def block_similarity_plot(ax, document, valleys, similarities):
            ylabel = "block Similarity",
            title = f'Block Similarity  Plot of doc: "{title} ..."')
            
+
+def valleys_to_breakpoints(valleys, blocks):
+    chunks=[]
+
+    # split blocks spans by founded valleys
+    for split in np.array_split(blocks, valleys):
+        # transofrm blocks span into a flat list of chunks
+        for block in split:
+            chunks.extend(block)
+        # keep track of valleys but at chunks level
+        chunks.append(dm.Document.BLOCK_SEPARATOR)
+    chunks = chunks[0:-1] # remove last separator since is not an actual breakpoints
+    
+    # Search only for breakpoints
+    sep_pos = [i for i,chunk in enumerate(chunks) 
+                    if chunk == dm.Document.BLOCK_SEPARATOR]
+    # crate breakpoints position info pairs   
+    breakpoints_pos = [(pos-1, pos) for pos in sep_pos]
+
+    return breakpoints_pos, chunks
 
 def block_span_plot(ax, document, true_breakpoints, system_breakpoints):
     # layout
