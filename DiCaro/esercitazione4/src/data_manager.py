@@ -9,7 +9,7 @@ class Document:
     BLOCK_SEPARATOR = "========"
     #WIKI_727K_SEPARATOR_REGX = "========,*[0-9]*,*[\w+\s*]*\.+"
     # match anything in between 8 consecutives '=' and a newline 
-    WIKI_727K_SEPARATOR_REGX = "========.\n*" 
+    WIKI_727K_SEPARATOR_REGX = "========.*\n" 
 
     def __init__(self, doc_file, tokenizer, search_title=False):
         self._chunk_tokenizer = tokenizer
@@ -25,7 +25,7 @@ class Document:
                 self.title = sections[0]
                 self.body_sections = sections[1:]
             else:
-                self.title = "unknow document title"
+                self.title = doc_file.stem # title is the file name
                 self.body_sections = sections
             
             self._chunks = []
