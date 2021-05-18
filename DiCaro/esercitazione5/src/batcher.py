@@ -9,8 +9,6 @@ from threading import Thread
 
 
 class Example(object):
-    """Represent a single input example instance of the NN 
-    """
 
     def __init__(self, band_name, vocab, hps):
 
@@ -31,22 +29,38 @@ class Example(object):
         self.target_length = len(target_seq)
 
     def pad_input(self, hps, pad_id):
-        """Padding since NN input is fixed
-
-        Args:
-            hps ([type]): [description]
-            pad_id ([type]): [description]
         """
+        Aggiunge una serie di caratteri di padding all'input, fino a raggiungere
+        la lunghezza massima della stringa. Questo padding sarà
+        ignorato dalla rete
+
+        :param hps:
+        :param pad_id:
+        :return:
+        """
+
         while len(self.input_seq) < hps.seq_len:
             self.input_seq.append(pad_id)
 
     def pad_output(self, hps, pad_id):
+        """
+        Aggiunge una serie di caratteri di padding all'output, fino a
+        raggiungere la lunghezza massima della stringa. Questo padding sarà
+        ignorato dalla rete
+
+        :param hps:
+        :param pad_id:
+        :return:
+        """
 
         while len(self.target_seq) < hps.seq_len:
             self.target_seq.append(pad_id)
 
 
 class Batch(object):
+    """
+    Un insieme di esempi. Crea l'input e l'output dell'insieme di esempi.
+    """
 
     def __init__(self, example_list, vocab, hps):
 
@@ -56,6 +70,12 @@ class Batch(object):
         self.init_target(example_list, hps)
 
     def init_input(self, example_list, hps):
+        """
+        Gli input sono matrici di dimensione fissa
+        :param example_list:
+        :param hps:
+        :return:
+        """
 
         self.input = np.zeros([hps.batch_size, hps.seq_len], dtype=np.int32)
         self.input_mask = np.zeros([hps.batch_size, hps.seq_len], dtype=np.float32)
@@ -69,9 +89,15 @@ class Batch(object):
             self.input_length[i] = ex.input_length
 
             for j in range(ex.input_length):
-                self.input_mask[i,j] = 1
+                self.input_mask[i, j] = 1
 
     def init_target(self, example_list, hps):
+        """
+        L'output è una matrice a 3 dimensioni (un tensore):
+        1. batch_size, la granbdezza dell'esempio,
+        2. seq_len, la lunghezza massima dell'esempio
+        3. vocab_size, la lunghezza massima del vocabolario
+        """
 
         self.target = np.zeros([hps.batch_size, hps.seq_len, hps.vocab_size], dtype=np.int32)
         self.target_mask = np.zeros([hps.batch_size, hps.seq_len], dtype=np.float32)
@@ -85,7 +111,7 @@ class Batch(object):
 
             for j in range(ex.target_length):
                 self.target[i, j, ex.target_seq[j]] = 1
-                self.target_mask[i,j] = 1
+                self.target_mask[i, j] = 1
 
 
 class Batcher(object):
@@ -110,7 +136,6 @@ class Batcher(object):
 
         self._example_q_threads = []
         for _ in range(self._num_example_q_threads):
-
             self._example_q_threads.append(Thread(target=self.fill_example_queue))
             self._example_q_threads[-1].daemon = True
             self._example_q_threads[-1].start()
@@ -139,13 +164,12 @@ class Batcher(object):
         while True:
 
             inputs = []
-
             for _ in range(self._hps.batch_size * self._bucketing_chache_size):
                 inputs.append(self._example_queue.get())
 
             batches = []
             for i in range(0, len(inputs), self._hps.batch_size):
-                batches.append(inputs[i:i+self._hps.batch_size])
+                batches.append(inputs[i:i + self._hps.batch_size])
 
             shuffle(batches)
             for b in batches:
@@ -154,17 +178,13 @@ class Batcher(object):
     def fill_example_queue(self):
 
         input_gen = self.text_generator(data.example_generator(self._data_path))
-
         while True:
 
             try:
-
                 band_name = next(input_gen)
 
             except StopIteration:
-
                 print("The example generator has exhausted saved_data")
-
                 raise Exception("single_pass off: Error! example generator out of saved_data.")
 
             example = Example(band_name, self._vocab, self._hps)
@@ -179,9 +199,7 @@ class Batcher(object):
             for idx, t in enumerate(self._example_q_threads):
 
                 if not t.is_alive():
-
                     print('\033[91m' + 'example thread dead. Restarting.' + '\033[0m')
-
                     new_t = Thread(target=self.fill_example_queue)
                     self._example_q_threads[idx] = new_t
                     new_t.daemon = True
@@ -190,9 +208,7 @@ class Batcher(object):
             for idx, t in enumerate(self._batch_q_threads):
 
                 if not t.is_alive():
-
                     print('\033[91m' + 'batch thread dead. Restarting.' + '\033[0m')
-
                     new_t = Thread(target=self.fill_batch_queue)
                     self._batch_q_threads[idx] = new_t
                     new_t.daemon = True
@@ -203,21 +219,13 @@ class Batcher(object):
         while True:
 
             e = next(example_generator)
-
             try:
-
                 band_name = e.features.feature["char_string"].bytes_list.value[0].decode("utf-8")
-
             except ValueError:
-
                 print('\033[91m' + 'Impossibile ritornare il nome della band' + '\033[0m')
                 continue
-
             if len(band_name) == 0:
-
                 warnings.warn("Trovato un esempio con nome band vuoto")
                 continue
-
             else:
-
                 yield band_name
