@@ -3,15 +3,21 @@ from collections import namedtuple, Counter
 import nltk
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize.treebank import TreebankWordDetokenizer
+from nltk.corpus import wordnet as wn
 
 import spacy
 
 # pos tags for verbs, see https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html
 VERB_POS_TAGS = ['VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ']
 
+# pos tags for pronouns
+SING_PRON_POS_TAGS = ['I', 'you', 'he', 'she'] 
+PLUR_PRON_POS_TAGS = ['it', 'we', 'they']
+
 # stanford parser dependencies types
 SUBJ_DEP_TYPES = ['nsubj', 'nsubjpass']
 OBJ_DEP_TYPES = ['dobj', 'iobj']
+
 
 # Step 1
 
@@ -140,13 +146,31 @@ def find_verb_fillers(sentences, verb, nlp_pipeline, valence=2):
 
 # step 3: WSD & semantic clustering
 
-def find_filler_senses(fillers, wsd_func):
+def pronoun_WSD_rule(lemma):
+    sense = None
+    if lemma in SING_PRON_POS_TAGS:
+        sense = wn.synset('person.n.01')
+    elif lemma in PLUR_PRON_POS_TAGS:
+        sense = wn.synset('people.n.01')
+    
+    return sense
+
+
+def find_filler_senses(fillers, wsd_func, apply_custom_rule=False):
     filler_senses = []
     
     for sentence, hanks_verb in fillers:
         filler1_sense = wsd_func(sentence, hanks_verb.filler1)
         filler2_sense = wsd_func(sentence, hanks_verb.filler2)
+        
+        if filler1_sense is None:
+            if apply_custom_rule:
+                filler1_sense = pronoun_WSD_rule(hanks_verb.filler1)
 
+        if filler2_sense is None:
+            if apply_custom_rule:
+                filler2_sense = pronoun_WSD_rule(hanks_verb.filler1)
+  
         filler_senses.append((filler1_sense, filler2_sense))
     
     return filler_senses
@@ -166,7 +190,7 @@ def semantic_clustering(filler_senses):
     return semantic_types
 
 # put everything together
-def compute_hanks(verb, valence, corpus, wsd_func):
+def compute_hanks(verb, valence, corpus, wsd_func, apply_rule=False):
     # step 1: subcorpus extraction
     selected_sents = corpus_extraction(verb, corpus)
 
@@ -175,7 +199,7 @@ def compute_hanks(verb, valence, corpus, wsd_func):
     fillers = find_verb_fillers(selected_sents, verb, nlp_pipeline=nlp, valence=valence)
 
     # step 3: filler senses WSD
-    filler_senses = find_filler_senses(fillers, wsd_func)
+    filler_senses = find_filler_senses(fillers, wsd_func, apply_custom_rule=apply_rule)
 
     # step 4: semantic clustering
     semantic_types = semantic_clustering(filler_senses)
