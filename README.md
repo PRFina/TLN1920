@@ -23,8 +23,9 @@ Viene seguita la seguente convenzione per la stuttura delle directories:
     * Esercitazione 2: Annotazione & Allineamento Ontologico tra FrameNet e WordNet.
     * Esercitazione 3: Text Summarization con Nasari.
     * Esercitazione 4: Annotazione Semantica con BabelNet & Sense Similarity con Nasari (embedded).
-* Dicaro
+* Di Caro
     * Esercitazione 1: Lexical Overlapping
     * Esercitazione 2: Content-to-Form
+    * Esercitazione 3: Teoria di Patrick Hanks e costruzione Semantic Types 
     * Esercitazione 4: Text Segmentation
     * Esercitazione 5: Text Generation con Language Models basati su RNN 
