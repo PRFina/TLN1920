@@ -18,6 +18,7 @@ Viene seguita la seguente convenzione per la stuttura delle directories:
 
 ## Table of Contents
 * Mazzei
+    * POS Tagger statistico basato su Hidden Markov Model.
 * Radicioni
     * Esercitazione 1: Sense Similarity con SimCorpus353 & Word Sense Disambiguation con algoritmo Lesk su corpus SemCor.
     * Esercitazione 2: Annotazione & Allineamento Ontologico tra FrameNet e WordNet.
