@@ -126,3 +126,33 @@ class HMMPosTagger():
                     break
 
         return list(predicted_tags)
+
+
+class DummyMajorityTagger():
+    
+    def __init__(self):
+        self.emission_counts = defaultdict(Counter)
+        self.pos_tags = None
+
+
+    def fit(self, X, y):
+        tags_set = set()
+        for sentence_tokens, sentence_tags in zip(X,y):
+            # emission counts
+            for token, pos_tag in zip(sentence_tokens, sentence_tags):
+                self.emission_counts[token][pos_tag] += 1
+                tags_set.add(pos_tag)
+
+        self.pos_tags = sorted(tags_set)
+
+    def predict(self, tokens):
+        predicted_tags = []
+        for token in tokens:
+            if token in self.emission_counts:
+                most_common_tag = self.emission_counts[token].most_common()[0][0]
+            else:
+                most_common_tag = "NOUN"
+        
+            predicted_tags.append((token, most_common_tag))
+
+        return predicted_tags
