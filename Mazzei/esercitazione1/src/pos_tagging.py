@@ -28,7 +28,7 @@ class HMMPosTagger():
     ZERO_PROB = 1e-16
 
     def __init__(self):
-        self.emission_probs = {}
+        self.emission_probs = defaultdict(dict)
         self.transition_probs = {}
         self.pos_tags = None # to discover after first pass
         self.viterbi_mat = None # will be instantiated in predict step
@@ -64,8 +64,10 @@ class HMMPosTagger():
         #normalize = lambda qnt, total: math.log(qnt/(total))
         normalize = lambda qnt, total: qnt/(total)
 
+        # normalize and switch from token -> tags to tag -> tokens
         for token, counter in  emission_counts.items():
-            self.emission_probs[token] = {token_pos: normalize(counter[token_pos], pos_counts[token_pos]) for token_pos in counter} 
+            for token_pos in counter:
+                self.emission_probs[token_pos][token] = normalize(counter[token_pos], pos_counts[token_pos])
 
         for pos, counter in transition_counts.items():
             self.transition_probs[pos] = {next_pos: normalize(counter[next_pos], pos_counts[next_pos]) for next_pos in counter}
@@ -79,13 +81,13 @@ class HMMPosTagger():
 
         # init
         for pos in viterbi_mat.pos_tags:
-            emission_prob = self.emission_probs[tokens[0]].get(pos, HMMPosTagger.ZERO_PROB)
+            emission_prob = self.emission_probs[pos].get(tokens[0], HMMPosTagger.ZERO_PROB)
             viterbi_mat.assign(pos, 0, self.transition_probs[HMMPosTagger.START_TOKEN][pos] * emission_prob)
 
         # recursion
         for token_idx, token in enumerate(tokens[1:], start=1):
             for pos in viterbi_mat.pos_tags:
-                emission_prob = self.emission_probs[token].get(pos, HMMPosTagger.ZERO_PROB)
+                emission_prob = self.emission_probs[pos].get(token, HMMPosTagger.ZERO_PROB)
 
                 viterbi_prefix = viterbi_mat.get_prefix_probs(token_idx)
                 transition_prefix = [self.transition_probs.get(prefix_tag, 0).get(pos, 0) for prefix_tag in viterbi_mat.pos_tags]
