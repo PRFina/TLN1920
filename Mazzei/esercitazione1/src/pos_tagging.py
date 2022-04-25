@@ -2,6 +2,8 @@ from collections import Counter, defaultdict, deque
 
 import numpy as np
 import pandas as pd
+import random
+
 
 
 class ViterbiMatrix():
@@ -154,5 +156,33 @@ class DummyMajorityTagger():
                 most_common_tag = "NOUN"
         
             predicted_tags.append((token, most_common_tag))
+
+        return predicted_tags
+
+
+class DummyRandomTagger():
+    
+    def __init__(self, random_seed=123456):
+        self.emission_counts = defaultdict(Counter)
+        self.pos_tags = None
+        random.seed(random_seed)
+
+
+    def fit(self, X, y):
+        tags_set = set()
+        for sentence_tokens, sentence_tags in zip(X,y):
+            # emission counts
+            for pos_tag in sentence_tags:
+                tags_set.add(pos_tag)
+
+        self.pos_tags = sorted(tags_set)
+
+
+    def predict(self, tokens):
+        predicted_tags = []
+        for token in tokens:
+            sampled_tag = random.choice(self.pos_tags)
+        
+            predicted_tags.append((token, sampled_tag))
 
         return predicted_tags
