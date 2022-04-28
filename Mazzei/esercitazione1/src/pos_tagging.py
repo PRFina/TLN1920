@@ -77,7 +77,7 @@ class HMMPosTagger():
         for pos, counter in transition_counts.items():
             self.transition_probs[pos] = {next_pos: normalize(counter[next_pos], pos_counts[next_pos]) for next_pos in counter}
 
-        # add computed emission probabilities
+        # add computed emission probabilities to the
         self.emission_probs_smoother.add_probabilities(self.emission_probs)
 
 
