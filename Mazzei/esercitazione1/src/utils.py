@@ -1,4 +1,5 @@
 from pathlib import Path
+from sklearn.metrics import confusion_matrix, accuracy_score
 
 def preprocess_data(dataset):
     """Preprocess input dataset.
@@ -22,6 +23,33 @@ def preprocess_data(dataset):
 
     return tokens, tags
 
+
+def evaluate(model, dataset_tokens, dataset_tags, labels):
+    """Helper function to evaluate a model on a given dataset.
+
+    Args:
+        model (Any): one of the model in pos_tagging module.
+        dataset_tokens (list[list[str]]): list of sentences, where each sentence is token sequence 
+        dataset_tags (list[list[str]]): list of sentences, where each sentence is tag sequence
+        labels (list[str]): tags name in the tagset
+
+    Returns:
+        float, np.ndarray: accuaracy and multiclass confusion matrix.
+    """
+    all_predictions = []
+    all_true_tags = []
+
+    for sentence, true_tags in zip(dataset_tokens[:2500], dataset_tags[:2500]):
+        predicted_tags = model.predict(sentence)
+
+        for (token, predicted), true in zip(predicted_tags, true_tags):
+            all_predictions.append(predicted)
+            all_true_tags.append(true)
+
+    accuracy = accuracy_score(all_true_tags, all_predictions)
+    confusion_mat = confusion_matrix(all_true_tags, all_predictions, labels=labels)
+
+    return accuracy, confusion_mat
 
 def load_pattern_rules(filepath):
     patterns_rules = []
