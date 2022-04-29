@@ -90,7 +90,7 @@ class HMMPosTagger():
         # init
         for pos in viterbi_mat.pos_tags:
             emission_prob = self.emission_probs_smoother.get(pos,tokens[0])
-            viterbi_mat.assign(pos, 0, self.transition_probs[HMMPosTagger.START_TOKEN][pos] * emission_prob)
+            viterbi_mat.assign(pos, 0, self.transition_probs[HMMPosTagger.START_TOKEN].get(pos, 0) * emission_prob)
 
         # recursion
         for token_idx, token in enumerate(tokens[1:], start=1):
