@@ -1,6 +1,6 @@
 # Tecnologie per il Linguaggio Naturale
 
-La repository contiene le esercitazioni per il corso Tecnologie per il Linguaggio naturale anno 2019/2020.
+La repository contiene le esercitazioni per il corso Tecnologie per il Linguaggio naturale anno 2020/2021.
 
 La repository è così organizzata:
 * Il corso è diviso in 3 moduli principali tenuti da differenti professori. Le 3 cartelle top-level si riferiscono a questi moduli.
